@@ -21,8 +21,11 @@ yarn install
 cp .env.example .env
 vi .env # set SLACK_SIGNING_SECRET, SLACK_BOT_TOKEN
 source .env
+```
 
-# 3) Local Development
+## Local Development
+
+```sh
 sls offline # local dev
 ngrok http 3000 # on another terminal window
 
@@ -31,8 +34,11 @@ ngrok http 3000 # on another terminal window
 # 4) Make sure it works on Slack
 #  /invite @{bot-name}
 #  /echo something
+```
 
-# 5) Deploy to AWS
+## Deploy to AWS
+
+```sh
 export AWS_ACCESS_KEY_ID=xxx
 export AWS_SECRET_ACCESS_KEY=yyy
 sls deploy --aws-profile <your profile>
