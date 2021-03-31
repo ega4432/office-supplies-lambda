@@ -168,12 +168,7 @@ app.command("/supply", async ({ ack, body, client }) => {
 app.view('office_supplies', async ({ body, ack, view, client }) => {
   await ack();
 
-  // const channel = 'UT3MR9FQT';
-  // 生活委員チャンネル ID: C0166386DBJ
-  // my user id: UT3MR9FQT
-  // zzz_yossiee: C016HDX4CR1
   const data = view.state.values;
-
   const requestBody = JSON.stringify({
     user: body.user.name,
     name: data.name.name.value,
@@ -184,21 +179,9 @@ app.view('office_supplies', async ({ body, ack, view, client }) => {
     remarks: data.remarks.remarks.value
   });
 
-  // const text = `<@${body.user.id}> さんが購入希望リストに商品を追加しました。\n`
-  //   + `商品名 : ${data.name.name.value}\n`
-  //   + `URL : ${data.url.url.value}\n`
-  //   + `金額 : ${data.amount.amount.value}\n`
-  //   + `個数 : ${data.count.count.value}\n`
-  //   + `購入理由 : ${(data.reason.reason.value || '消耗品')}\n`
-  //   + `備考 : ${(data.remarks.remarks.value || 'なし')}`;
-
   await axios.post(`/macros/s/${process.env.SPREADSHEET_ID}/exec`, requestBody)
     .then(() => { console.log('requestBody', requestBody); })
     .catch((e) => { console.log('ERROR', e)});
-
-  // client.chat.postMessage({ channel, text })
-  //   .the(() => { console.log("channel: " + channel, "text :" + text ); })
-  //   .catch((e) => { console.error('ERROR', e, e.data.response_metadata); });
 });
 
 // ------------------------

@@ -2,7 +2,9 @@
   "name": "office-supplies-cmd",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "deploy": "sls deploy --aws-profile hero-innovation"
+  },
   "author": "ysmtegsr",
   "license": "MIT",
   "dependencies": {
