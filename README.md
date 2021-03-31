@@ -39,9 +39,5 @@ ngrok http 3000 # on another terminal window
 ## Deploy to AWS
 
 ```sh
-export AWS_ACCESS_KEY_ID=xxx
-export AWS_SECRET_ACCESS_KEY=yyy
-sls deploy --aws-profile <your profile>
-
-# Update the Request URL for the slash command with the AWS URL
+yarn deploy
 ```
